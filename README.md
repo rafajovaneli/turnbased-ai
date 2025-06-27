@@ -40,6 +40,8 @@ pip install pillow
 python -m game.game_gui
 ```
 
+![image](https://github.com/user-attachments/assets/b4f47591-a0f4-4dbc-8aa0-c4cca22a471d)
+
 ---
 
 ## 🎮 Como jogar | How to play
