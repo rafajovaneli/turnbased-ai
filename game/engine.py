@@ -19,7 +19,10 @@ def run_game():
 
     turn = 1
     while player.is_alive() and ai.is_alive():
+        print("\n" + "=" * 30)
         print(f"----- TURNO {turn} -----")
+        print("=" * 30 + "\n")
+        turn += 1
         print(draw_health_bar(player.name, player.hp))
         print(draw_health_bar(ai.name, ai.hp))
 
