@@ -1,0 +1,10 @@
+# Dependências obrigatórias
+numpy>=1.19.0
+
+# Dependências opcionais para melhor experiência
+Pillow>=8.0.0
+
+# Dependências de desenvolvimento (opcional)
+# pytest>=6.0.0
+# black>=21.0.0
+# flake8>=3.8.0

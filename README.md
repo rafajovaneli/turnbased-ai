@@ -1,100 +1,368 @@
-# 🕹️ Combate por Turnos com Minimax | Turn-Based Combat with Minimax
+# 🎮 Combate por Turnos com IA
 
-Este projeto é um **jogo de combate por turnos** desenvolvido em **Python**, com o objetivo de praticar e demonstrar o uso do **algoritmo Minimax** em um contexto de inteligência artificial para jogos.  
+<div align="center">
 
-This project is a **turn-based combat game** developed in **Python**, aimed at practicing and demonstrating the use of the **Minimax algorithm** in a game AI context.
+![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)
+![Tkinter](https://img.shields.io/badge/GUI-Tkinter-green.svg)
+![AI](https://img.shields.io/badge/AI-Minimax%20%7C%20Neural-purple.svg)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
----
+**Um jogo estratégico de combate por turnos com sistema de IA avançado**
 
-## 💡 Objetivos do projeto | Project goals
+[🎯 Demo](#-demonstração) • [🚀 Instalação](#-instalação) • [📖 Como Usar](#-como-usar) • [🤖 Tecnologias](#-tecnologias-utilizadas) • [📊 Arquitetura](#-arquitetura)
 
-✅ Praticar a implementação do **algoritmo Minimax** em Python.  
-✅ Aplicar o Minimax para tomada de decisão em um jogo simples de turnos.  
-✅ Desenvolver uma interface gráfica com **Tkinter** para visualização do combate.  
-✅ Adicionar elementos de sorte (dano crítico, cura acima da média) para tornar o jogo mais dinâmico.  
-✅ Treinar boas práticas de organização de código em projetos Python.  
-
-✅ Practice implementing the **Minimax algorithm** in Python.  
-✅ Apply Minimax for decision-making in a simple turn-based game.  
-✅ Develop a graphical interface with **Tkinter** to display the combat.  
-✅ Add luck elements (critical damage, above-average healing) to make the game more dynamic.  
-✅ Train good code organization practices in Python projects.
+</div>
 
 ---
 
-## 🚀 Como executar o projeto | How to run the project
+## 🌟 Visão Geral
 
-1️⃣ Clone o repositório | Clone the repository:
+Este projeto implementa um **jogo de combate por turnos** com dois tipos distintos de inteligência artificial:
+
+- **🎯 Minimax**: Algoritmo clássico determinístico
+- **🧠 Rede Neural**: Sistema adaptativo que aprende com cada partida
+
+### ✨ Características Principais
+
+- 🎮 **Múltiplas Interfaces**: Console, GUI simples e GUI moderna
+- 🤖 **IA Dupla**: Escolha entre Minimax tradicional ou Rede Neural adaptativa
+- 📊 **Sistema de Aprendizado**: IA Neural evolui e melhora com o tempo
+- 🎨 **Interface Moderna**: Design responsivo com animações e feedback visual
+- 📈 **Estatísticas Detalhadas**: Acompanhe seu desempenho e evolução da IA
+- ⚙️ **Configuração Flexível**: Ajuste dificuldade e parâmetros facilmente
+
+---
+
+## 🎯 Demonstração
+
+### Comparação dos Algoritmos
+
+| 🎯 **Minimax**            | 🧠 **Rede Neural**           |
+| ------------------------- | ---------------------------- |
+| ✅ Estratégia consistente | ✅ Aprende continuamente     |
+| ✅ Performance previsível | ✅ Estratégia evolutiva      |
+| ✅ Boa para iniciantes    | ✅ Pode surpreender          |
+| ❌ Não aprende            | ❌ Imprevisível inicialmente |
+
+### Funcionalidades Visuais
+
+- **Interface Moderna**: Design clean com cores temáticas para cada IA
+- **Animações**: Efeitos visuais para ataques, defesa e cura
+- **Feedback em Tempo Real**: Log de combate colorido e informativo
+- **Estatísticas**: Acompanhamento de performance e aprendizado da IA
+
+---
+
+## 🚀 Instalação
+
+### Pré-requisitos
+
+- Python 3.7 ou superior
+- pip (gerenciador de pacotes Python)
+
+### Instalação Rápida
+
 ```bash
-git clone https://github.com/seu-usuario/seu-repo.git
-cd seu-repo
+# Clone o repositório
+git clone https://github.com/rafajovaneli/turnbased-ai.git
+cd turnbased-ai
+
+# Instale dependências opcionais
+pip install numpy pillow
+
+# Execute o jogo
+python run_window_manager.py
 ```
 
-2️⃣ Instale as dependências | Install dependencies:
+### Dependências
+
+| Biblioteca | Versão   | Obrigatória | Descrição               |
+| ---------- | -------- | ----------- | ----------------------- |
+| `tkinter`  | Built-in | ✅          | Interface gráfica       |
+| `numpy`    | 1.19+    | ✅          | Cálculos da rede neural |
+| `Pillow`   | 8.0+     | ❌          | Suporte a imagens       |
+
+---
+
+## 📖 Como Usar
+
+### 🎮 Modos de Jogo
+
+#### 1. Interface Completa (Recomendado)
+
 ```bash
-pip install pillow
+python run_window_manager.py
 ```
 
-3️⃣ Execute o jogo com interface gráfica | Run the game with GUI:
+- Menu principal com seleção de IA
+- Interface moderna e intuitiva
+- Estatísticas em tempo real
+
+#### 2. Console Clássico
+
 ```bash
-python -m game.game_gui
+python main.py
 ```
 
-![image](https://github.com/user-attachments/assets/b4f47591-a0f4-4dbc-8aa0-c4cca22a471d)
+- Experiência tradicional no terminal
+- Ideal para desenvolvimento e testes
+
+#### 3. Demo da IA Neural
+
+```bash
+python demo_neural_ai.py
+```
+
+- Demonstração das capacidades da IA
+- Visualização do processo de aprendizado
+
+### ⚔️ Mecânicas de Combate
+
+| Ação            | Efeito                     | Estratégia      |
+| --------------- | -------------------------- | --------------- |
+| **⚔️ Atacar**   | Causa 15-25 de dano        | Ofensiva direta |
+| **🛡️ Defender** | Reduz dano recebido em 50% | Proteção tática |
+| **💚 Curar**    | Restaura 5-20 HP           | Recuperação     |
+
+### 🤖 Tipos de IA
+
+#### 🎯 Minimax
+
+- **Profundidade**: 6 níveis de análise
+- **Estratégia**: Sempre escolhe a melhor jogada possível
+- **Tempo de resposta**: ~1 segundo
+- **Ideal para**: Aprender padrões e estratégias básicas
+
+#### 🧠 Rede Neural
+
+- **Arquitetura**: 6 → 10 → 3 neurônios
+- **Aprendizado**: Contínuo durante o jogo
+- **Adaptação**: Muda estratégia baseada em resultados
+- **Ideal para**: Desafio crescente e gameplay dinâmico
 
 ---
 
-## 🎮 Como jogar | How to play
+## 🤖 Tecnologias Utilizadas
 
-- **Atacar | Attack:** causa dano ao inimigo (chance de dano crítico). / deals damage to the enemy (chance of critical hit).  
-- **Defender | Defend:** reduz o dano recebido no próximo ataque do inimigo. / reduces damage received on next enemy attack.  
-- **Curar | Heal:** recupera pontos de vida (cura entre 5 e 15 pontos). / restores health points (heals between 5 and 15 points).  
-- **Reiniciar | Restart:** reinicia a batalha após vitória ou derrota. / restarts the battle after a win or loss.  
+### Core
 
-💥 O inimigo é controlado pela IA e toma decisões com base no Minimax. / The enemy is AI-controlled and makes decisions using Minimax.  
-⚡ A cada turno, tanto o herói quanto o inimigo realizam ações até que um seja derrotado. / Each turn, both hero and enemy perform actions until one is defeated.
+- **Python 3.7+**: Linguagem principal
+- **Tkinter**: Interface gráfica nativa
+- **NumPy**: Computação científica para IA
 
----
+### Algoritmos de IA
 
-## 🧠 Sobre o Minimax | About Minimax
+- **Minimax**: Algoritmo clássico de teoria dos jogos
+- **Backpropagation**: Treinamento da rede neural
+- **Sigmoid**: Função de ativação
 
-O algoritmo **Minimax** foi utilizado para que a IA do inimigo escolha suas ações de forma a:
-- Maximizar o seu próprio benefício.
-- Minimizar as chances do jogador vencer.
+### Arquitetura
 
-The **Minimax algorithm** was used so the enemy AI selects its actions to:
-- Maximize its own benefit.
-- Minimize the player's chances of winning.
-
-📌 A implementação considera profundidade limitada e estados simplificados do jogo para tomada de decisão em tempo real.  
-📌 The implementation uses limited depth and simplified game states for real-time decision-making.
+- **MVC Pattern**: Separação clara de responsabilidades
+- **Observer Pattern**: Sistema de eventos
+- **Strategy Pattern**: Intercâmbio de algoritmos de IA
 
 ---
 
-## ✨ Funcionalidades extras | Extra features
+## 📊 Arquitetura
 
-- Barra de vida animada (piscando ao sofrer dano). / Animated health bar (blinks when damaged).  
-- Interface gráfica simples e clara com imagens de herói e monstro. / Simple and clear GUI with hero and monster images.  
-- Elementos de sorte: dano crítico e cura acima da média. / Luck elements: critical hits and above-average healing.  
-- Botões desabilitados automaticamente ao fim da partida. / Buttons automatically disabled at end of match.
+### 🏗️ Estrutura do Projeto
+
+```
+📦 combate-turnos-ia/
+├── 🎮 game/                    # Módulo principal do jogo
+│   ├── 🧠 neural_ai.py         # Implementação da rede neural
+│   ├── 🎯 minimax.py           # Algoritmo Minimax
+│   ├── 👤 entities.py          # Classes de personagens
+│   ├── 🎨 enhanced_gui.py      # Interface moderna
+│   ├── 🖥️ game_gui.py          # Interface simples
+│   ├── 🪟 window_manager.py    # Gerenciador de janelas
+│   ├── ⚙️ config.py            # Configurações centralizadas
+│   └── 🎲 engine.py            # Motor do jogo
+├── 🧪 tests/                   # Testes automatizados
+│   └── test_engine.py
+├── 🚀 run_window_manager.py    # Launcher principal
+├── 🎯 demo_neural_ai.py        # Demonstração da IA
+└── 📚 README.md                # Esta documentação
+```
+
+### 🧠 Arquitetura da Rede Neural
+
+```
+Entrada (6 neurônios)     Oculta (10 neurônios)    Saída (3 neurônios)
+┌─────────────────┐       ┌─────────────────┐       ┌─────────────────┐
+│ HP Jogador      │────┐  │                 │────┐  │ Atacar          │
+│ HP Inimigo      │────┤  │   Camada        │────┤  │ Defender        │
+│ Defendendo?     │────┤  │   Oculta        │────┤  │ Curar           │
+│ Turno Atual     │────┤  │   (Sigmoid)     │────┤  │                 │
+│ Diferença HP    │────┤  │                 │────┤  │ (Softmax)       │
+│ Status Anterior │────┘  │                 │────┘  │                 │
+└─────────────────┘       └─────────────────┘       └─────────────────┘
+```
 
 ---
 
-## 🛠️ Tecnologias utilizadas | Technologies used
+## ⚙️ Configuração
 
-- Python 3  
-- Tkinter (GUI)  
-- Pillow (image handling)
+### 🎛️ Parâmetros Principais
+
+```python
+# game/config.py
+GAME_CONFIG = {
+    'MAX_HP': 300,              # Vida máxima
+    'PLAYER_ATTACK': 20,        # Ataque do jogador
+    'AI_ATTACK': 25,            # Ataque da IA
+    'MINIMAX_DEPTH': 6,         # Profundidade Minimax
+    'NEURAL_LEARNING': True,    # Aprendizado ativo
+}
+```
+
+### 🎨 Personalização Visual
+
+```python
+STYLE_CONFIG = {
+    'COLORS': {
+        'MINIMAX': '#3498DB',   # Azul para Minimax
+        'NEURAL': '#9B59B6',    # Roxo para Neural
+        'PLAYER': '#27AE60',    # Verde para jogador
+        'ENEMY': '#E74C3C'      # Vermelho para inimigo
+    }
+}
+```
 
 ---
 
-## 👨‍💻 Autor | Author
+## 🧪 Testes e Qualidade
 
-Rafael Hernandes Jovaneli  
+### Executar Testes
+
+```bash
+# Todos os testes
+python -m unittest discover tests/
+
+# Teste específico
+python -m unittest tests.test_engine
+
+# Com verbose
+python -m unittest tests.test_engine -v
+```
+
+### 📊 Cobertura de Testes
+
+- ✅ **Entidades**: Criação, combate, cura
+- ✅ **Minimax**: Estados terminais, avaliação
+- ✅ **Rede Neural**: Treinamento, predição
+- ✅ **Configurações**: Validação de parâmetros
 
 ---
 
-## 📌 Licença | License
+## 📈 Roadmap
 
-Este projeto foi desenvolvido para fins educativos e de prática.  
-This project was developed for educational and practice purposes.
+### 🎯 Versão Atual (2.0.0)
+
+- ✅ Dois tipos de IA funcionais
+- ✅ Interface moderna
+- ✅ Sistema de aprendizado
+- ✅ Documentação completa
+
+### 🚀 Próximas Versões
+
+#### v2.1.0 - Melhorias de UX
+
+- [ ] 🎵 Sistema de som
+- [ ] 🎨 Temas visuais
+- [ ] 📱 Interface responsiva
+- [ ] 🏆 Sistema de conquistas
+
+#### v2.2.0 - Recursos Avançados
+
+- [ ] 👥 Multiplayer local
+- [ ] 💾 Salvamento de progresso
+- [ ] 📊 Analytics detalhados
+- [ ] 🌐 Leaderboards online
+
+#### v3.0.0 - IA Avançada
+
+- [ ] 🧠 Redes neurais convolucionais
+- [ ] 🎮 Reinforcement Learning
+- [ ] 🤖 Múltiplas personalidades de IA
+- [ ] 📚 Sistema de memória de longo prazo
+
+---
+
+## 🎓 Conceitos Demonstrados
+
+Este projeto demonstra conhecimento em:
+
+### 🧠 Inteligência Artificial
+
+- **Algoritmos Clássicos**: Implementação do Minimax
+- **Machine Learning**: Rede neural com backpropagation
+- **Aprendizado Adaptativo**: Sistema que evolui com experiência
+
+### 💻 Desenvolvimento de Software
+
+- **Arquitetura Limpa**: Separação de responsabilidades
+- **Padrões de Design**: MVC, Strategy, Observer
+- **Testes Automatizados**: Cobertura abrangente
+
+### 🎨 Interface e UX
+
+- **Design Responsivo**: Interface adaptável
+- **Feedback Visual**: Animações e indicadores
+- **Usabilidade**: Interface intuitiva e acessível
+
+---
+
+## 🤝 Contribuição
+
+### Como Contribuir
+
+1. 🍴 Fork o projeto
+2. 🌿 Crie uma branch (`git checkout -b feature/nova-funcionalidade`)
+3. 💾 Commit suas mudanças (`git commit -am 'Adiciona nova funcionalidade'`)
+4. 📤 Push para a branch (`git push origin feature/nova-funcionalidade`)
+5. 🔄 Abra um Pull Request
+
+### 📋 Guidelines
+
+- Siga o padrão PEP 8
+- Adicione testes para novas funcionalidades
+- Atualize a documentação
+- Use commits semânticos
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob a **MIT License** - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+---
+
+## 👨‍💻 Autor
+
+**Seu Nome**
+
+- 💼 LinkedIn: [linkedin.com/in/rafaeljovaneli](www.linkedin.com/in/rafael-jovaneli-a495b420)
+- 📧 Email: rafajovaneli@gmail.com
+- 🐙 GitHub: [@rafajovaneli](https://github.com/rafajovaneli
+
+---
+
+## 🙏 Agradecimentos
+
+- 🎯 **Minimax Algorithm**: Baseado na teoria clássica de jogos
+- 🧠 **Neural Networks**: Inspirado em trabalhos de deep learning
+- 🎨 **UI/UX**: Design inspirado em jogos modernos
+- 📚 **Documentação**: Seguindo melhores práticas de open source
+
+---
+
+<div align="center">
+
+**⭐ Se este projeto foi útil, considere dar uma estrela!**
+
+[![GitHub stars](https://img.shields.io/github/stars/seu-usuario/combate-turnos-ia.svg?style=social&label=Star)](https://github.com/seu-usuario/combate-turnos-ia)
+[![GitHub forks](https://img.shields.io/github/forks/seu-usuario/combate-turnos-ia.svg?style=social&label=Fork)](https://github.com/seu-usuario/combate-turnos-ia/fork)
+
+</div>

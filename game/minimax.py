@@ -1,3 +1,5 @@
+from .config import GAME_CONFIG
+
 class BattleState:
     def __init__(self, player_hp, enemy_hp, player_turn, player_defending=False, enemy_defending=False):
         self.player_hp = player_hp
@@ -15,9 +17,16 @@ class BattleState:
         elif self.enemy_hp <= 0:
             return -10000  # jogador venceu
 
-        score = (self.enemy_hp * 2) - (self.player_hp * 1.5)
+        # Avaliação mais balanceada
+        hp_diff = self.enemy_hp - self.player_hp
+        score = hp_diff * 10
+        
+        # Bônus por ter mais HP
         if self.enemy_hp > self.player_hp:
-            score += 10
+            score += 50
+        elif self.player_hp > self.enemy_hp:
+            score -= 50
+            
         return score
 
     def get_actions(self):
@@ -31,18 +40,24 @@ class BattleState:
 
         if self.player_turn:
             if action == 'attack':
-                damage = 20 if not self.enemy_defending else 10
+                damage = GAME_CONFIG['PLAYER_ATTACK']
+                if self.enemy_defending:
+                    damage = max(1, damage - GAME_CONFIG['AI_DEFENSE'])
                 new_enemy_hp = max(0, new_enemy_hp - damage)
             elif action == 'heal':
-                new_player_hp = min(100, new_player_hp + 10)
+                healing = (GAME_CONFIG['HEAL_MIN'] + GAME_CONFIG['HEAL_MAX']) // 2
+                new_player_hp = min(GAME_CONFIG['MAX_HP'], new_player_hp + healing)
             elif action == 'defend':
                 new_player_defending = True
         else:
             if action == 'attack':
-                damage = 25 if not self.player_defending else 12
+                damage = GAME_CONFIG['AI_ATTACK']
+                if self.player_defending:
+                    damage = max(1, damage - GAME_CONFIG['PLAYER_DEFENSE'])
                 new_player_hp = max(0, new_player_hp - damage)
             elif action == 'heal':
-                new_enemy_hp = min(100, new_enemy_hp + 10)
+                healing = (GAME_CONFIG['HEAL_MIN'] + GAME_CONFIG['HEAL_MAX']) // 2
+                new_enemy_hp = min(GAME_CONFIG['MAX_HP'], new_enemy_hp + healing)
             elif action == 'defend':
                 new_enemy_defending = True
 
