@@ -1,4 +1,5 @@
 import random
+from .config import GAME_CONFIG
 
 
 class Character:
@@ -14,20 +15,16 @@ class Character:
         return self.hp > 0
 
     def attack(self, target):
-        # Gera dano aleatório entre 0 e 20, com mais chance de ser maior que 10
-        damage = random.choices(
-            population=range(0, 21),
-            weights=[1, 1, 1, 2, 2, 2, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
-            k=1
-        )[0]
+        # Usa o ataque base do personagem com variação aleatória
+        base_damage = self.atk
+        variation = random.randint(-5, 5)
+        damage = max(1, base_damage + variation)
 
         # Se o alvo está defendendo, reduz o dano
         if target.is_defending:
             damage = max(1, damage - target.defense)
-        else:
-            damage = max(1, damage)
 
-        target.hp -= damage
+        target.hp = max(0, target.hp - damage)
         print(f"{self.name} atacou {target.name} causando {damage} de dano!")
         return damage
 
@@ -36,9 +33,10 @@ class Character:
         print(f"{self.name} entrou em modo de defesa!")
 
     def heal(self):
-        healing = random.randint(5, 20)
+        healing = random.randint(GAME_CONFIG['HEAL_MIN'], GAME_CONFIG['HEAL_MAX'])
         self.hp = min(self.max_hp, self.hp + healing)
         print(f"{self.name} se curou em {healing} pontos!")
+        return healing
 
     def reset_turn(self):
         self.is_defending = False
